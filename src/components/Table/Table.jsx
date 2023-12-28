@@ -1,38 +1,50 @@
+import React from 'react';
 import { Card, Typography } from "@material-tailwind/react";
+import Pista from '../../assets/images/dala/pista.jpg';
  
-const TABLE_HEAD = ["", "Rasm", "Katalog nomi", "Католoг номи", "Status"];
+const TABLE_HEAD = ["N", "Image", "Katalog nomi", "Катaлoг номи", "Status", "Action"];
  
 const TABLE_ROWS = [
   {
-    name: "John Michael",
-    job: "Manager",
-    date: "23/04/18",
+    id: "1",
+    image: Pista,
+    catalogEng: "Pista",
+    catalogRus: "Kunga boqar",
+    status: "NOT_ACTIVE",
   },
   {
-    name: "Alexa Liras",
-    job: "Developer",
-    date: "23/04/18",
+    id: "2",
+    image: Pista,
+    catalogEng: "Pista",
+    catalogRus: "Kunga boqar",
+    status: "ACTIVE",
   },
   {
-    name: "Laurent Perrier",
-    job: "Executive",
-    date: "19/09/17",
+    id: "3",
+    image: Pista,
+    catalogEng: "Pista",
+    catalogRus: "Kunga boqar",
+    status: "NOT_ACTIVE",
   },
   {
-    name: "Michael Levi",
-    job: "Developer",
-    date: "24/12/08",
+    id: "4",
+    image: Pista,
+    catalogEng: "Pista",
+    catalogRus: "Kunga boqar",
+    status: "ACTIVE",
   },
   {
-    name: "Richard Gran",
-    job: "Manager",
-    date: "04/10/21",
+    id: "5",
+    image: Pista,
+    catalogEng: "Pista",
+    catalogRus: "Kunga boqar",
+    status: "ACTIVE",
   },
 ];
  
 export function DefaultTable() {
   return (
-    <Card className="h-full w-full">
+    <Card className="h-full w-full mx-auto">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
@@ -53,19 +65,30 @@ export function DefaultTable() {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ name, job, date }, index) => {
+          {TABLE_ROWS.map(({ id, image, catalogEng, catalogRus, status}, index) => {
             const isLast = index === TABLE_ROWS.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
- 
             return (
-              <tr key={name}>
+              <tr key={image}>
                 <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {name}
+                    {id}
+                  </Typography>
+                </td>
+                <td className={classes}>
+                  <img src={image} alt="" className="w-[80px]" />
+                </td>
+                <td className={classes}>
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {catalogEng}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -74,27 +97,25 @@ export function DefaultTable() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {job}
+                    {catalogRus}
                   </Typography>
                 </td>
                 <td className={classes}>
                   <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className={`${status === "ACTIVE" ? 'text-green-500' : 'text-red-500'}`}
+                  >
+                    {status === "ACTIVE" ? 'FAOL' : 'FAOL EMAS'}
+                  </Typography>
+                </td>
+                <td className={classes}>
+                <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {date}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    as="a"
-                    href="#"
-                    variant="small"
-                    color="blue-gray"
-                    className="font-medium"
-                  >
-                    Edit
+                    `${}`{status}
                   </Typography>
                 </td>
               </tr>

@@ -10,7 +10,7 @@ import {
    
   const chartConfig = {
     type: "line",
-    width: 1400,
+    width: "100%",
     height: 500,
     series: [
       {
@@ -30,7 +30,7 @@ import {
       dataLabels: {
         enabled: false,
       },
-      colors: ["#020617"],
+      colors: ["#25B679"],
       stroke: {
         lineCap: "round",
         curve: "smooth",
@@ -103,7 +103,7 @@ import {
     return (
       <Card>
         
-        <CardBody className="px-2 pb-0">
+        <CardBody className="w-full px-2 pb-0">
           <Chart {...chartConfig} />
         </CardBody>
       </Card>
