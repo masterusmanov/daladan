@@ -1,48 +1,42 @@
 import React from 'react';
 import { Card, Typography } from "@material-tailwind/react";
-import Pista from '../../assets/images/dala/pista.jpg';
  
-const TABLE_HEAD = ["N", "Image", "Katalog nomi", "Катaлoг номи", "Status", "Action"];
+const TABLE_HEAD = ["T/R", "F.I.O", "Telefon raqami", "Roli"];
  
 const TABLE_ROWS = [
   {
     id: "1",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
-    status: "NOT_ACTIVE",
+    nameEng: "Elbek ",
+    phone: "+998943320016",
+    status: "Admin",
   },
   {
     id: "2",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
-    status: "ACTIVE",
+    nameEng: "Elbek",
+    phone: "+998943320016",
+    status: "User",
   },
   {
     id: "3",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
-    status: "NOT_ACTIVE",
+    nameEng: "Elbek",
+    phone: "+998943320016",
+    status: "Admin",
   },
   {
     id: "4",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
-    status: "ACTIVE",
+    nameEng: "Elbek",
+    phone: "+998943320016",
+    status: "User",
   },
   {
     id: "5",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
-    status: "ACTIVE",
+    nameEng: "Elbek",
+    phone: "+998943320016",
+    status: "User",
   },
 ];
  
-export function DefaultTable() {
+export function TableTwo() {
   return (
     <Card className="h-full w-full mx-auto">
       <table className="w-full min-w-max table-auto text-left">
@@ -65,7 +59,7 @@ export function DefaultTable() {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ id, image, catalogEng, catalogRus, status}, index) => {
+          {TABLE_ROWS.map(({ id, image, nameEng, phone, status}, index) => {
             const isLast = index === TABLE_ROWS.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
             return (
@@ -80,15 +74,12 @@ export function DefaultTable() {
                   </Typography>
                 </td>
                 <td className={classes}>
-                  <img src={image} alt="" className="w-[80px]" />
-                </td>
-                <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {catalogEng}
+                    {nameEng}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -97,26 +88,15 @@ export function DefaultTable() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {catalogRus}
+                    {phone}
                   </Typography>
                 </td>
                 <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className={`${status === "ACTIVE" ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}`}
                   >
-                    {status === "ACTIVE" ? 'faol' : 'faol emas'}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    <i class='bx bx-edit text-[24px] text-blue-700'></i>
-                    <i class='bx bx-trash ml-[20px] text-[24px] text-red-600'></i>
+                    {status}
                   </Typography>
                 </td>
               </tr>

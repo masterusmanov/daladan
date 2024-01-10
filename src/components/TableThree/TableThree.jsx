@@ -2,47 +2,47 @@ import React from 'react';
 import { Card, Typography } from "@material-tailwind/react";
 import Pista from '../../assets/images/dala/pista.jpg';
  
-const TABLE_HEAD = ["N", "Image", "Katalog nomi", "Катaлoг номи", "Status", "Action"];
+const TABLE_HEAD = ["T/R", "Bo'lim nomi", "Бўлим номи", "Kategoriya nomi", "Status", "Action"];
  
 const TABLE_ROWS = [
   {
     id: "1",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
+    dep_nameEng: "Poliz ekinlari",
+    dep_nameRus: "Poliz ekinlari",
+    catalogRus: "Poliz ekinlari",
     status: "NOT_ACTIVE",
   },
   {
     id: "2",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
+    dep_nameEng: "Boshoqli ekinlar",
+    dep_nameRus: "Boshoqli ekinlar",
+    catalogRus: "Boshoqli ekinlar",
     status: "ACTIVE",
   },
   {
     id: "3",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
+    dep_nameEng: "Sabzavotlar",
+    dep_nameRus: "Sabzavotlar",
+    catalogRus: "Sabzavotlar",
     status: "NOT_ACTIVE",
   },
   {
     id: "4",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
+    dep_nameEng: "Mevalar",
+    dep_nameRus: "Mevalar",
+    catalogRus: "Mevalar",
     status: "ACTIVE",
   },
   {
     id: "5",
-    image: Pista,
-    catalogEng: "Pista",
-    catalogRus: "Kunga boqar",
+    dep_nameEng: "Dukkaklik ekinlar",
+    dep_nameRus: "Dukkaklik ekinlar",
+    catalogRus: "Dukkaklik ekinlar",
     status: "ACTIVE",
   },
 ];
  
-export function DefaultTable() {
+export function TableThree() {
   return (
     <Card className="h-full w-full mx-auto">
       <table className="w-full min-w-max table-auto text-left">
@@ -65,11 +65,11 @@ export function DefaultTable() {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ id, image, catalogEng, catalogRus, status}, index) => {
+          {TABLE_ROWS.map(({ id, dep_nameEng, dep_nameRus, catalogRus, status}, index) => {
             const isLast = index === TABLE_ROWS.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
             return (
-              <tr key={image}>
+              <tr key={dep_nameEng}>
                 <td className={classes}>
                   <Typography
                     variant="small"
@@ -80,7 +80,13 @@ export function DefaultTable() {
                   </Typography>
                 </td>
                 <td className={classes}>
-                  <img src={image} alt="" className="w-[80px]" />
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {dep_nameEng}
+                  </Typography>
                 </td>
                 <td className={classes}>
                   <Typography
@@ -88,7 +94,7 @@ export function DefaultTable() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {catalogEng}
+                    {dep_nameRus}
                   </Typography>
                 </td>
                 <td className={classes}>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { DefaultTable } from "../../components/Table/Table";
+import { TableThree } from "../../components/TableThree/TableThree";
 import Modal from 'react-modal';
 import './Category.css'
 
 
-export default function Category(){
+export default function Department(){
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -28,7 +28,7 @@ export default function Category(){
           </div>
           <button onClick={openModal} className=" float-right font-bold bg-[#25B679] text-white px-[13px] flex items-center pb-1 rounded-lg text-[24px] mr-6 2xl:mr-0 mt-[16px]">+</button>
           <div className="mt-[100px] w-[100%] px-4  mx-auto 2xl:px-0">
-            <DefaultTable/>
+            <TableThree/>
           </div>
           <div className="w-[50%]">
           <Modal
