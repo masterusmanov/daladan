@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Typography } from "@material-tailwind/react";
 import Pista from '../../assets/images/dala/pista.jpg';
  
-const TABLE_HEAD = ["N", "Image", "Katalog nomi", "Катaлoг номи", "Status", "Action"];
+const TABLE_HEAD = ["T/R", "Image", "Katalog nomi", "Катaлoг номи", "Status", "Action"];
  
 const TABLE_ROWS = [
   {

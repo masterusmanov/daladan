@@ -6,6 +6,8 @@ import Category from './pages/Category/Category';
 import Admin from './pages/Admin/Admin';
 import Department from './pages/Category/Department';
 import News from './pages/News/News';
+import Banner from './pages/Banner/Banner';
+import Faq from './pages/Faq/Faq';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/department" element={<Department />} />
         <Route path="/news" element={<News />} />
+        <Route path="/banner" element={<Banner />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from 'react-modal';
 
 
-function News(){
+function Faq(){
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => {
         setIsModalOpen(true);
@@ -15,7 +15,7 @@ function News(){
     return (
         <div className="container mx-auto px-4 2xl:px-0">
             <div className="flex justify-between items-center my-[32px]">
-                <h1 className="font-custom font-[700] text-[28px]">Yangiliklar</h1>
+                <h1 className="font-custom font-[700] text-[28px]">FAQ</h1>
                 <button onClick={openModal} className=" float-right font-bold bg-[#25B679] text-white px-[13px] flex items-center pb-1 rounded-lg text-[24px] mr-6 2xl:mr-0 mt-[16px]">+</button>
             </div>
             <div className="flex flex-wrap gap-[20px] items-center justify-between">
@@ -79,4 +79,4 @@ function News(){
         </div>
     )
 }
-export default News;
+export default Faq;

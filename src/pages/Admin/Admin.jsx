@@ -12,16 +12,11 @@ export default function Category(){
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // setEditingIndex(null);
   };
 
-  // const handleActionsClick = () => {
-  //   setShowActions(!showActions);
-  // };
-
     return(
-        <div className="container mx-auto">
-            <div className="flex justify-between items-center my-[32px]">
+        <div className="container mx-auto ">
+            <div className="flex justify-between items-center my-[32px] px-4 2xl:px-0">
                 <h1 className="font-custom font-[700] text-[28px]">Admin qo'shish</h1>
                 <button onClick={openModal} className=" float-right font-bold bg-[#25B679] text-white px-[13px] flex items-center pb-1 rounded-lg text-[24px] mr-6 2xl:mr-0 mt-[16px]">+</button>
             </div>
@@ -35,12 +30,12 @@ export default function Category(){
               overlayClassName="react-modal-overlay"
               onRequestClose={closeModal}
             >
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h2 className="modal-title">Bo’lim qo’shish</h2>
-                  <button className="close-btn" onClick={closeModal}>
-                    &#10006;
-                  </button>
+              <div className="modal-content bg-green-500 w-[528px]">
+                <div className="modal-header pt-[40px] pb-[64px] px-[70px]">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-[24px] font-[700] font-custom">Admin qo’shish</h2>
+                    <button className="close-btn" onClick={closeModal}><i class='bx bx-x text-[40px]'></i></button>
+                  </div>
                   <form className="modal-form" >
 
                     <label htmlFor="sectionName">Mahsulot nomi</label>
