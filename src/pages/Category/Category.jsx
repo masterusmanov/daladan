@@ -7,13 +7,26 @@ import './Category.css'
 
 export default function Category(){
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [selectedFile, setSelectedFile] = useState(null);
+    
   const openModal = () => {
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+
+  const handleFileChange = (event) => {
+    const selectedFileType = event.target.files[0].type;
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/svg+xml'];
+
+    if (allowedTypes.includes(selectedFileType)) {
+      setSelectedFile(event.target.files[0]);
+    } else {
+      alert('Only JPG, PNG, and SVG files are allowed!');
+    }
   };
 
     return(
@@ -35,35 +48,38 @@ export default function Category(){
               overlayClassName="react-modal-overlay"
               onRequestClose={closeModal}
             >
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h2 className="modal-title">Bo’lim qo’shish</h2>
-                  <button className="close-btn" onClick={closeModal}>
-                    &#10006;
-                  </button>
-                  <form className="modal-form" >
-
-                    <label htmlFor="sectionName">Mahsulot nomi</label>
+              <div className="modal-content bg-white w-[528px]">
+                <div className="modal-header pt-[40px] pb-[64px] px-[70px]">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-[24px] font-[700] font-custom">Kategoriya qo’shish</h2>
+                    <button className="close-btn" onClick={closeModal}><i class='bx bx-x text-[40px]'></i></button>
+                  </div>
+                  <form className="grid my-[24px]">
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700]">Kategoriya nomi</label>
                     <input
                       type="text"
-                      className="input-name"
+                      className="input-name mt-[8px]"
                       id="sectionName"
                       name="nameL"
-                      placeholder="Mahsulot nomi"
+                      placeholder="Kategoriya nomi"
                       autoComplete="off"
                     />
-                    <label htmlFor="sectionName">Маҳсулот номи</label>
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Категория номи</label>
                     <input
                       type="text"
-                      className="input-name"
+                      className="input-name mt-[8px]"
                       id="sectionName"
                       name="nameK"
-                      placeholder="Маҳсулот номи"
+                      placeholder="Категория номи"
                       autoComplete="off"
                     
                     />
-
-                    <button className="save-btn" type="submit">
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Rasm Yuklash PNG, JPG (345x180px)</label>
+                    <label for="fileInput" class="mt-[24px] flex items-center justify-center cursor-pointer bg-[#F4F4F4] border-2 border-dashed border-[#6B6B6B] py-[24px] px-[10px] h-[160px] rounded-[12px]">
+                      <span className="text-[#6B6B6B]"><i class='bx bx-plus'></i> Reklama uchun rasm yuklash</span>
+                      <input type="file" id="fileInput" class="hidden"/>
+                  </label>
+                    <button className="bg-[#25B679] text-white mt-[40px] w-[400px] px-[16px] py-[12px] font-custom text-[24px] rounded-[7px]" type="submit">
                       Saqlash
                     </button>
                   </form>

@@ -39,35 +39,43 @@ export default function Department(){
               overlayClassName="react-modal-overlay"
               onRequestClose={closeModal}
             >
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h2 className="modal-title">Bo’lim qo’shish</h2>
-                  <button className="close-btn" onClick={closeModal}>
-                    &#10006;
-                  </button>
-                  <form className="modal-form" >
-
-                    <label htmlFor="sectionName">Mahsulot nomi</label>
+              <div className="modal-content bg-white w-[528px]">
+                <div className="modal-header pt-[40px] pb-[64px] px-[70px]">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-[24px] font-[700] font-custom">Bo'lim qo’shish</h2>
+                    <button className="close-btn" onClick={closeModal}><i class='bx bx-x text-[40px]'></i></button>
+                  </div>
+                  <form className="grid my-[24px]">
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700]">Kategoriya</label>
                     <input
                       type="text"
-                      className="input-name"
+                      className="input-name mt-[8px]"
                       id="sectionName"
                       name="nameL"
-                      placeholder="Mahsulot nomi"
+                      placeholder="Kategoriya"
                       autoComplete="off"
                     />
-                    <label htmlFor="sectionName">Маҳсулот номи</label>
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Bo’lim nomi</label>
                     <input
                       type="text"
-                      className="input-name"
+                      className="input-name mt-[8px]"
                       id="sectionName"
                       name="nameK"
-                      placeholder="Маҳсулот номи"
+                      placeholder="Bo’lim nomi"
                       autoComplete="off"
                     
                     />
-
-                    <button className="save-btn" type="submit">
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Бўлим номи</label>
+                    <input
+                      type="text"
+                      className="input-name mt-[8px]"
+                      id="sectionName"
+                      name="nameK"
+                      placeholder="Бўлим номи"
+                      autoComplete="off"
+                    
+                    />
+                    <button className="bg-[#25B679] text-white mt-[40px] w-[400px] px-[16px] py-[12px] font-custom text-[24px] rounded-[7px]" type="submit">
                       Saqlash
                     </button>
                   </form>
