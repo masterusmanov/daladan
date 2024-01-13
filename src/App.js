@@ -9,13 +9,14 @@ import News from './pages/News/News';
 import Banner from './pages/Banner/Banner';
 import Faq from './pages/Faq/Faq';
 import Login from './pages/Login/Login';
+import Moderator from './pages/Modeerator/Moderator';
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
       {/* <Header/> */}
-      {location.pathname !== '/' && <Header />}
+      {location.pathname !== '/' && <Header /> && <Moderator />}
      <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/monitoring" element={<Monitoring />} />
@@ -25,6 +26,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/banner" element={<Banner />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/faq" element={<Moderator />} />
       </Routes>
     </div>
   );
