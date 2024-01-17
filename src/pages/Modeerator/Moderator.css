@@ -1,0 +1,56 @@
+/* Customize the scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Customize the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Customize the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background: #25B679;
+    border-radius: 40px;
+  }
+  
+  /* Customize the scrollbar thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #25B659;
+    border-radius: 40px;
+  }
+  
+  .dropbtn {
+    /* background-color: #04AA6D; */
+    /* color: white; */
+    /* padding: 16px; */
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    /* position: absolute; */
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* margin: 100px; */
+    z-index: 5;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
