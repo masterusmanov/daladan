@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { DefaultTable } from "../../components/Table/Table";
 import Modal from 'react-modal';
-import './Category.css'
+import './Category.css';
 
 
 export default function Category(){
@@ -77,7 +77,7 @@ export default function Category(){
                     <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Rasm Yuklash PNG, JPG (345x180px)</label>
                     <label for="fileInput" class="mt-[24px] flex items-center justify-center cursor-pointer bg-[#F4F4F4] border-2 border-dashed border-[#6B6B6B] py-[24px] px-[10px] h-[160px] rounded-[12px]">
                       <span className="text-[#6B6B6B]"><i class='bx bx-plus'></i> Reklama uchun rasm yuklash</span>
-                      <input type="file" id="fileInput" class="hidden"/>
+                      <input type="file" id="fileInput" className="hidden" onChange={handleFileChange}/>
                   </label>
                     <button className="bg-[#25B679] text-white mt-[40px] w-[400px] px-[16px] py-[12px] font-custom text-[24px] rounded-[7px]" type="submit">
                       Saqlash

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from 'react-modal';
 
-
 function Faq(){
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => {

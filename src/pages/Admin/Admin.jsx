@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { TableTwo } from "../../components/TableTwo/TableTwo";
 import Modal from 'react-modal';
-import './Admin.css'
-
+import './Admin.css';
 
 export default function Category(){
   const [isModalOpen, setIsModalOpen] = useState(false);

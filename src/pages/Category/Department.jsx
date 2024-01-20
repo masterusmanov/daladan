@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { TableThree } from "../../components/TableThree/TableThree";
 import Modal from 'react-modal';
-import './Category.css'
-
+import './Category.css';
 
 export default function Department(){
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,7 +1,6 @@
 import React from "react";
 import Example from '../../components/Chart/Chart';
 
-
 function Monitoring() {
     return(
         <div className="container mx-auto text-[#212121] px-4 2xl:px-0">

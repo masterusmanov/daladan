@@ -1,18 +1,30 @@
 import React, { useState } from "react";
 import Modal from 'react-modal';
-import banner from '../../assets/images/banner.svg'
-
+import banner from '../../assets/images/banner.svg';
 
 function Banner(){
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+
     const openModal = () => {
         setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        // setEditingIndex(null);
     };
+
+    const handleFileChange = (event) => {
+      const selectedFileType = event.target.files[0].type;
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/svg+xml'];
+  
+      if (allowedTypes.includes(selectedFileType)) {
+        setSelectedFile(event.target.files[0]);
+      } else {
+        alert('Only JPG, PNG, and SVG files are allowed!');
+      }
+    };
+
     return (
         <div className="container mx-auto xl:px-4 2xl:px-0">
             <div className="flex justify-between items-center my-[32px]">
@@ -66,7 +78,7 @@ function Banner(){
                         <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Rasm Yuklash PNG, JPG (345x180px)</label>
                         <label for="fileInput" class="mt-[24px] flex items-center justify-center cursor-pointer bg-[#F4F4F4] border-2 border-dashed border-[#6B6B6B] py-[24px] px-[10px] h-[160px] rounded-[12px]">
                           <span className="text-[#6B6B6B]"><i class='bx bx-plus'></i> Reklama uchun rasm yuklash</span>
-                          <input type="file" id="fileInput" class="hidden"/>
+                          <input type="file" id="fileInput" class="hidden" onChange={handleFileChange}/>
                         </label>
                         <label htmlFor="sectionName" className="font-custom text-[17px] mt-[16px] font-[700]">URL</label>
                         <input
