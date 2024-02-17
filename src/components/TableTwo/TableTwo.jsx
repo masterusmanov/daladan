@@ -1,42 +1,38 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Card, Typography } from "@material-tailwind/react";
  
-const TABLE_HEAD = ["T/R", "F.I.O", "Telefon raqami", "Roli"];
- 
-const TABLE_ROWS = [
-  {
-    id: "1",
-    nameEng: "Elbek ",
-    phone: "+998943320016",
-    status: "Admin",
-  },
-  {
-    id: "2",
-    nameEng: "Elbek",
-    phone: "+998943320016",
-    status: "User",
-  },
-  {
-    id: "3",
-    nameEng: "Elbek",
-    phone: "+998943320016",
-    status: "Admin",
-  },
-  {
-    id: "4",
-    nameEng: "Elbek",
-    phone: "+998943320016",
-    status: "User",
-  },
-  {
-    id: "5",
-    nameEng: "Elbek",
-    phone: "+998943320016",
-    status: "User",
-  },
-];
+const TABLE_HEAD = ["T/R", "F.I.O", "Telefon raqami", "Roli", "Action"];
  
 export function TableTwo() {
+
+  const [todo, setTodo] = useState([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+        const token = localStorage.getItem("token");
+
+          const response = await fetch('http://188.225.10.97:8080/api/v1/admin/all', {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          });
+          if (!response.ok) {
+            throw new Error('Network response was not ok.');
+          }
+          const data = await response.json();
+          setTodo(data);
+          console.log(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchData();
+    }, []);
+
   return (
     <Card className="h-full w-full mx-auto">
       <table className="w-full min-w-max table-auto text-left">
@@ -59,8 +55,8 @@ export function TableTwo() {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ id, image, nameEng, phone, status}, index) => {
-            const isLast = index === TABLE_ROWS.length - 1;
+          {todo.map(({ id, image, fullName, phone, role}, index) => {
+            const isLast = index === todo.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
             return (
               <tr key={image}>
@@ -70,7 +66,7 @@ export function TableTwo() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {id}
+                    {index + 1}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -79,7 +75,7 @@ export function TableTwo() {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {nameEng}
+                    {fullName}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -96,7 +92,7 @@ export function TableTwo() {
                     variant="small"
                     color="blue-gray"
                   >
-                    {status}
+                    {role === "ROLE_ADMIN" ? "ADMIN" : role === "ROLE_MODERATOR" ? "MODERATOR" : role}
                   </Typography>
                 </td>
               </tr>
