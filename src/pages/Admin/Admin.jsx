@@ -45,6 +45,15 @@ export default function Category(){
                       placeholder="Ismi"
                       autoComplete="off"
                     />
+                    <label htmlFor="sectionName" className="font-custom text-[17px] font-[700]">Parol</label>
+                    <input
+                      type="password"
+                      className="input-name mt-[8px]"
+                      id="sectionName"
+                      name="nameL"
+                      placeholder="•••••••"
+                      autoComplete="off"
+                    />
                     <label htmlFor="sectionName" className="font-custom text-[17px] font-[700] mt-[16px]">Telefon raqami</label>
                     <input
                       type="text"
