@@ -10,6 +10,7 @@ export function TableTwo() {
   const [todo, setTodo] = useState([]);
   const [isModalOpenupdate, setIsModalOpenupdate] = useState(false);
   const [isModalOpendelete, setIsModalOpendelete] = useState(false);
+
   
   const openModalupdate = (id) => {
     localStorage.setItem("updateid", id)
@@ -56,6 +57,33 @@ export function TableTwo() {
   
       fetchData();
     }, []);
+    
+
+    const handleDelete = async (id) => {
+      // event.preventDefault();
+      try {
+        const token = localStorage.getItem("token");
+        id = localStorage.getItem("deleteid");
+        const response = await fetch(`http://188.225.10.97:8080/api/v1/admin/${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        localStorage.removeItem("deleteid")        
+        console.log('Item deleted successfully');
+        closedeleteModal();
+      } catch (error) {
+        console.error('Error deleting data:', error);
+      }
+    };
+    
+  
+
 
   return (
     <Card className="h-full w-full mx-auto">
@@ -201,7 +229,7 @@ export function TableTwo() {
             <form className="grid my-[24px]">
               <h1>Rostdan ham o'chirmoqchimisiz?</h1>
               <div className='flex items-center justify-end border gap-4'>
-                <button className="cursor-pointer bg-red-500 text-white mt-[40px] w-[150px] px-[16px] py-[12px] font-custom text-[20px] rounded-[7px]" type="submit">
+                <button onClick={handleDelete} className="cursor-pointer bg-red-500 text-white mt-[40px] w-[150px] px-[16px] py-[12px] font-custom text-[20px] rounded-[7px]" type="submit">
                   O'chirish
                 </button>
                 <button onClick={closedeleteModal} className="cursor-pointer bg-[#25B679] text-white mt-[40px] w-[150px] px-[16px] py-[12px] font-custom text-[20px] rounded-[7px]" type="submit">

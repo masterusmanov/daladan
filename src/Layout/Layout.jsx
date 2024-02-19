@@ -11,9 +11,9 @@ const Layout = () => {
         if (!token) {
             navigate('/login');
         }else{
-            navigate('/')
+            navigate('/monitoring')
         }
-    }, []);
+    }, [navigate]);
 
     return (
         <div>
